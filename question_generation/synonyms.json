@@ -1,3 +1,9 @@
+# This file provides a list of synonyms for different attributes and relations to vary the language.
+# When we create templates for multiple objects, we may want to add synonyms for all (every, any, everything that is a)
+# We may want to add plural things objects cubes, spheres, etc
+# We may want to add synonyms for negation
+# We may want to add synonyms for extremes "most, farthest, etc"
+
 {
   "thing": ["thing", "object"],
   "sphere": ["sphere", "ball"],
