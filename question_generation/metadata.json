@@ -48,6 +48,9 @@
       "output": "ObjectSet",
       "terminal": false
     },
+      
+      # filter_color etc take an ObjectSet and an attribute and outputs an ObjectSet of objects with that attribute
+      
     {
       "name": "filter_color",
       "inputs": ["ObjectSet"],
@@ -76,6 +79,8 @@
       "output": "ObjectSet",
       "terminal": false
     },
+
+    # unique takes an object set as input and returns one object
     {
       "name": "unique",
       "inputs": ["ObjectSet"],
@@ -83,6 +88,8 @@
       "terminal": false,
       "properties": []
     },
+
+    # relate takes an object and relation as input and outputs an object set of all objects with the specified relation to the input object
     {
       "name": "relate",
       "inputs": ["Object"],
@@ -90,6 +97,7 @@
       "output": "ObjectSet",
       "terminal": false
     },
+    # union and intersect take two object sets and return one object set containing the union or intersection of the other two
     {
       "name": "union",
       "inputs": ["ObjectSet", "ObjectSet"],
@@ -102,12 +110,16 @@
       "output": "ObjectSet",
       "terminal": false
     },
+
+    # count takes an object set as an input and returns the integer value of the number of objects in that set
     {
       "name": "count",
       "inputs": ["ObjectSet"],
       "output": "Integer",
       "terminal": true
     },
+
+    # query_attribute takes an object and returns the specified attribute
     {
       "name": "query_shape",
       "inputs": ["Object"],
@@ -132,12 +144,17 @@
       "output": "Material",
       "terminal": true
     },
+    
+    # exist takes an object set and outputs a boolean determining whether or not the object set is empty
     {
       "name": "exist",
       "inputs": ["ObjectSet"],
       "output": "Bool",
       "terminal": true
     },
+
+    # equal_attribute takes two attributes and returns a boolean determining if they're equal
+    # equal refers to a query and can be terminal.  Same refers to a relation and is not terminal.
     {
       "name": "equal_color",
       "inputs": ["Color", "Color"],
@@ -156,6 +173,8 @@
       "output": "Bool",
       "terminal": true
     },
+
+    # less than and greater than compare two integers and return a boolean
     {
       "name": "less_than",
       "inputs": ["Integer", "Integer"],
@@ -210,6 +229,8 @@
       "output": "ObjectSet",
       "terminal": false
     },
+
+    # The remainder are template_only and are not instantiated as functions
     {
       "name": "filter",
       "inputs": ["ObjectSet"],
