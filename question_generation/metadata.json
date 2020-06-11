@@ -1,4 +1,20 @@
+# metadata defines the simple functional programming language used to construct programs and program templates
+# functions can have names, inputs, side_inputs, outputs, terminal, properties, and template_only fields
+# all functions have names, inputes, outputs, and terminal
+# The names field defines the name of the function (ex: scene, exist, filter_count)
+# the inputs field defines the type of inputs the function receives (ObjectSet, Object, Color, Shape, Integer, etc)
+# the side_inputs field defines the types of inputs a function might take in addition to the main input
+    # for example, a filter_exist takes an ObjectSet but also takes certain attributes distinguishing the target
+# the outputs field defines the type of output of the function (Object, ObjectSet, Bool, Integer)
+# the terminal field defines whether or not this can be an end node.  Only query's can be end nodes.
+# the properties field is only used once and is empty, so I think we can ignore that
+# the template_only field indicates that a node is only valid as part of a program template and cannot be used in a fully instantiated program
+    # During instantiation, template nodes of type filter_unique will be replaced by a subsequence of filters followed by a unique node
+
+# we may have to change the terminal field, but we must do so in a way that doesn't cut questions short.
+
 {
+  # this defines the possible values different attributes can take
   "dataset": "CLEVR-v1.0",
   "types": {
     "Object": null,
@@ -21,8 +37,12 @@
       "rubber", "metal"
     ]
   },
+
+  # these are the functions used for programming questions
+
   "functions": [
     {
+      # scene takes no input and returns all objects in the scene
       "name": "scene",
       "inputs": [],
       "output": "ObjectSet",
